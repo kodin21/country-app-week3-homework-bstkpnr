@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from "react";
 import axios from 'axios'
+import {Card,CardColumns,CardGroup,CardImg,Row,Col} from 'react-bootstrap'
 
 
 
@@ -11,24 +12,27 @@ function Country() {
     });
   }, [countries]);
   return (
-    <div className="container">
-      <div >
-        {countries.map((eleman) => {
-          return (
-              <div  key={eleman.name} >
-                <img  src={eleman.flag} style={{width:'18rem'}} />
-                <div>
-                  <p>{eleman.name}</p>
-                  <p className="mb-2 text-muted">
+  
+    <Row xs={1} md={3} className="g-4">
+
+    {countries.map((eleman) => {
+      return (
+        <Col>
+            <Card key={eleman.name} border="success" className="bg-white text-dark" style={{height:"50vh",border:"4px solid"}}>
+                <CardImg variant="top" src={eleman.flag}  />
+                <Card.Body>
+                  <Card.Title>{eleman.name}</Card.Title>
+                  <Card.Title className="mb-2 text-muted">
                     {eleman.capital}
-                  </p>
-                  <h4>{eleman.languages[0].name}</h4>
-                </div>
-              </div>
+                  </Card.Title>
+                  <Card.Text>{eleman.languages[0].name}</Card.Text>
+                </Card.Body>
+                </Card>
+                </Col>
           );
         })}
-      </div>
-    </div>
+        </Row>
+    
   );
 }
 

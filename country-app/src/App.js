@@ -1,24 +1,33 @@
 import './App.css';
 import Country from './component/Country/Country';
+
 import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import {Nav, NavItem} from 'react-bootstrap'
+import LanguageStatic from './component/Language/Language';
 
 
 function App() {
   return (
     <Router>
       <div className="container ">
-        <div>
-          <div className="column">
-            <div className="text-center">
-              <Link to="" type="button" style={linkStyle}>
+          <Nav variant="pills" defaultActiveKey="/">
+            <NavItem>
+              <Nav.Link href="/" >
                 Ülkeler Listesi
-              </Link>
+              </Nav.Link>
+            </NavItem>
+            <NavItem>
+              <Nav.Link href="/static">
+                İstatistik
+
+              </Nav.Link>
+
+            </NavItem>
+          </Nav>
             </div>
-          </div>
-        </div>
 
         <Route path="/" component={Country} exact />
-      </div>
+        <Route path="/static" component={LanguageStatic} />
     </Router>
   );
 }
