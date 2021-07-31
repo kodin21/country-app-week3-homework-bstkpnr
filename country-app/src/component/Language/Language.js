@@ -35,13 +35,14 @@ return (
 
 <Card className="shadow-lg  bg-white rounded">
 
-    <ListGroup className="list-group-flush p-5 col-12 ">
+    <ListGroup className="list-group-flush p-4 col-12 ">
+      <h4 className="p-3 mb-2 bg-secondary text-white rounded">Language Top 10</h4>
   {
     languages.map((lang, index) => ( 
       
       (index < 10 && (
         <p>
-        <span className="badge bg-dark p-3 col-12">{lang.name} - ({lang.count} ülke konuşuyor)</span>
+        <span className="badge bg-dark p-3 col-12">{lang.name} - ({lang.count} )</span>
       </p>
     ))
     
